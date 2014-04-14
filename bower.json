@@ -1,6 +1,10 @@
 {
   "name": "zen-query-ui",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BjoernKW/ZenQueryUI"
+  },
   "dependencies": {
     "angular": "1.2.16",
     "json3": "~3.2.6",
@@ -10,7 +14,9 @@
     "angular-resource": "1.2.16",
     "angular-cookies": "1.2.16",
     "angular-sanitize": "1.2.16",
-    "angular-route": "1.2.16"
+    "angular-route": "1.2.16",
+    "angular-translate": "~2.1.0",
+    "angular-ui-select2": "latest"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

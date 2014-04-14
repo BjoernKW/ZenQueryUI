@@ -5,9 +5,11 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'pascalprecht.translate',
+    'ui.select2'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $translateProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -16,4 +18,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+    $translateProvider.translations('de_DE', {
+    });
+    $translateProvider.preferredLanguage('de_DE');
   });
