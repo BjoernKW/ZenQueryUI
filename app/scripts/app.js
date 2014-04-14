@@ -7,9 +7,10 @@ angular
     'ngSanitize',
     'ngRoute',
     'pascalprecht.translate',
-    'ui.select2'
+    'ui.select2',
+    'zenQueryServices'
   ])
-  .config(function ($routeProvider, $translateProvider) {
+  .config(function ($routeProvider, $translateProvider, $resourceProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -19,6 +20,26 @@ angular
         redirectTo: '/'
       });
     $translateProvider.translations('de_DE', {
+      'NAME': 'Name',
+      'URL': 'URL',
+      'USERNAME': 'Nutzername',
+      'PASSWORD': 'Passwort',
+      'TOTAL': 'Gesamt',
+      'HOME': 'Home',
+      'CONTACT': 'Impressum',
+      'ABOUT': 'Infos',
+      'DETAILS': 'Details',
     });
-    $translateProvider.preferredLanguage('de_DE');
+    $translateProvider.translations('en_UK', {
+      'NAME': 'Name',
+      'URL': 'URL',
+      'USERNAME': 'Username',
+      'PASSWORD': 'Password',
+      'TOTAL': 'Total',
+      'HOME': 'Home',
+      'CONTACT': 'Contact',
+      'ABOUT': 'About',
+      'DETAILS': 'Details',
+    });
+    $translateProvider.preferredLanguage('en_UK');
   });
