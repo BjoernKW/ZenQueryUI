@@ -14,7 +14,7 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'DatabaseConnectionsCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -34,7 +34,8 @@ angular
       'DETAILS': 'Details',
       'CREATE': 'Create',
       'UPDATE': 'Update',
-      'DELETE': 'Delete'
+      'DELETE': 'Delete',
+      'NEW': 'New'
     });
     $translateProvider.translations('de_DE', {
       'NAME': 'Name',
@@ -51,7 +52,8 @@ angular
       'DETAILS': 'Details',
       'CREATE': 'Erstellen',
       'UPDATE': 'Aktualisieren',
-      'DELETE': 'Löschen'
+      'DELETE': 'Löschen',
+      'NEW': 'Neu'
     });
     $translateProvider.preferredLanguage('en_UK');
   });

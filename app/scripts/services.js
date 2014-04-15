@@ -19,6 +19,7 @@ zenQueryServices.factory('DatabaseConnection', function($resource) {
 				method: 'POST'
 			},
 			update: {
+				params: { databaseConnectionId: '@id' },
 				method: 'PUT'
 			},
 			delete: {

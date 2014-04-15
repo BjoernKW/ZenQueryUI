@@ -17,10 +17,12 @@
           <th>{{ 'URL' | translate }}</th>
           <th>{{ 'USERNAME' | translate }}</th>
           <th>{{ 'PASSWORD' | translate }}</th>
+          <th></th>
         </tr>
       </thead>
       <tfoot>
         <tr>
+          <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td><strong>{{ 'TOTAL' | translate }}</strong></td>
@@ -33,6 +35,9 @@
           <td>{{databaseConnection.url}}</td>
           <td>{{databaseConnection.username}}</td>
           <td>{{databaseConnection.password}}</td>
+          <td>
+            <button type="submit" class="btn btn-danger" ng-click="delete(databaseConnection.id)">{{ 'DELETE' | translate }}</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -49,7 +54,7 @@
       </div>
       <div class="form-group">
         <label for="url">{{ 'URL' | translate }}</label>
-        <input type="url" class="form-control" id="url" placeholder="{{ 'URL' | translate }}" ng-model="databaseConnection.url">
+        <input type="text" class="form-control" id="url" placeholder="{{ 'URL' | translate }}" ng-model="databaseConnection.url">
       </div>
       <div class="form-group">
         <label for="username">{{ 'USERNAME' | translate }}</label>
@@ -59,8 +64,9 @@
         <label for="password">{{ 'PASSWORD' | translate }}</label>
         <input type="text" class="form-control" id="password" placeholder="{{ 'PASSWORD' | translate }}" ng-model="databaseConnection.password">
       </div>
-      <button type="submit" class="btn btn-default" ng-show="databaseConnection" ng-click="update(databaseConnection.id)">{{ 'UPDATE' | translate }}</button>
-      <button type="submit" class="btn btn-primary" ng-click="create()">{{ 'CREATE' | translate }}</button>
+      <button type="submit" class="btn btn-primary" ng-hide="databaseConnection.id" ng-click="create()">{{ 'CREATE' | translate }}</button>
+      <button type="submit" class="btn btn-default" ng-show="databaseConnection.id" ng-click="update()">{{ 'UPDATE' | translate }}</button>
+      <button type="submit" class="btn btn-success" ng-show="databaseConnection.id" ng-click="new()">{{ 'NEW' | translate }}</button>
     </form>
   </div>
 </div>
@@ -70,5 +76,5 @@
 <hr>
 
 <footer>
-  <div id="main_footer" ng-hide="hideButtons">created by <a href="http://fullmontymedia.com" title="Full Monty Media">Full Monty Media</a>, {{currentYear}}.</div>
+  <div id="main_footer">created by <a href="http://fullmontymedia.com" title="Full Monty Media">Full Monty Media</a>, {{currentYear}}.</div>
 </footer>
