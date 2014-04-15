@@ -16,6 +16,22 @@ angular
         templateUrl: 'views/main.html',
         controller: 'DatabaseConnectionsCtrl'
       })
+      .when('/databaseConnections', {
+        templateUrl: 'views/databaseConnections.html',
+        controller: 'DatabaseConnectionsCtrl'
+      })
+      .when('/queries', {
+        templateUrl: 'views/queries.html',
+        controller: 'QueriesCtrl'
+      })
+      .when('/queryVersions', {
+        templateUrl: 'views/queryVersions.html',
+        controller: 'QueryVersionsCtrl'
+      })
+      .when('/resultSets', {
+        templateUrl: 'views/resultSets.html',
+        controller: 'ResultSetsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -31,6 +47,7 @@ angular
       'DATABASE_CONNECTIONS': 'Database connections',
       'QUERIES': 'Queries',
       'VERSIONS': 'Versions',
+      'RESULT_SETS': 'Result sets',
       'DETAILS': 'Details',
       'CREATE': 'Create',
       'UPDATE': 'Update',
@@ -49,6 +66,7 @@ angular
       'DATABASE_CONNECTIONS': 'Datenbankverbindungen',
       'QUERIES': 'Abfragen',
       'VERSIONS': 'Versionen',
+      'RESULT_SETS': 'Abfrageergebnisse',
       'DETAILS': 'Details',
       'CREATE': 'Erstellen',
       'UPDATE': 'Aktualisieren',
