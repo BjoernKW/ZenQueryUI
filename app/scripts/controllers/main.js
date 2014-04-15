@@ -3,7 +3,7 @@
 angular.module('zenQueryUiApp')
 	.controller('MainCtrl', function ($scope, DatabaseConnection) {
 		var today = new Date();
-    	$scope.currentYear = today.getFullYear();
+		$scope.currentYear = today.getFullYear();
 
 		$scope.databaseConnections = DatabaseConnection.findAll(
 			function(databaseConnections) {
@@ -13,8 +13,14 @@ angular.module('zenQueryUiApp')
 
 		$scope.showDetails = function(databaseConnectionId) {
 			$scope.databaseConnection = DatabaseConnection.get(
-				{ databaseConnectionId: databaseConnectionId }
+				{
+					databaseConnectionId: databaseConnectionId
+				}
 			);
-		}
+		};
+
+		$scope.create = function() {
+			$scope.databaseConnection = DatabaseConnection.create($scope.databaseConnection);
+		};
 	}
 );

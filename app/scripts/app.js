@@ -10,7 +10,7 @@ angular
     'ui.select2',
     'zenQueryServices'
   ])
-  .config(function ($routeProvider, $translateProvider, $resourceProvider) {
+  .config(function ($routeProvider, $translateProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -19,17 +19,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-    $translateProvider.translations('de_DE', {
-      'NAME': 'Name',
-      'URL': 'URL',
-      'USERNAME': 'Nutzername',
-      'PASSWORD': 'Passwort',
-      'TOTAL': 'Gesamt',
-      'HOME': 'Home',
-      'CONTACT': 'Impressum',
-      'ABOUT': 'Infos',
-      'DETAILS': 'Details',
-    });
     $translateProvider.translations('en_UK', {
       'NAME': 'Name',
       'URL': 'URL',
@@ -39,7 +28,30 @@ angular
       'HOME': 'Home',
       'CONTACT': 'Contact',
       'ABOUT': 'About',
+      'DATABASE_CONNECTIONS': 'Database connections',
+      'QUERIES': 'Queries',
+      'VERSIONS': 'Versions',
       'DETAILS': 'Details',
+      'CREATE': 'Create',
+      'UPDATE': 'Update',
+      'DELETE': 'Delete'
+    });
+    $translateProvider.translations('de_DE', {
+      'NAME': 'Name',
+      'URL': 'URL',
+      'USERNAME': 'Nutzername',
+      'PASSWORD': 'Passwort',
+      'TOTAL': 'Gesamt',
+      'HOME': 'Home',
+      'CONTACT': 'Impressum',
+      'ABOUT': 'Infos',
+      'DATABASE_CONNECTIONS': 'Datenbankverbindungen',
+      'QUERIES': 'Abfragen',
+      'VERSIONS': 'Versionen',
+      'DETAILS': 'Details',
+      'CREATE': 'Erstellen',
+      'UPDATE': 'Aktualisieren',
+      'DELETE': 'Löschen'
     });
     $translateProvider.preferredLanguage('en_UK');
   });
