@@ -10,6 +10,10 @@ angular.module('zenQueryUiApp')
 			);
 		};
 
+		$scope.selectRow = function(row) {
+			$scope.selectedRow = row;
+		};
+
 		$scope.showDetails = function(queryId) {
 			$scope.query = Query.get(
 				{

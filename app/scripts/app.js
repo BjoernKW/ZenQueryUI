@@ -8,6 +8,7 @@ angular
     'ngRoute',
     'pascalprecht.translate',
     'ui.select2',
+    'ui.bootstrap',
     'zenQueryServices'
   ])
   .config(function ($routeProvider, $translateProvider) {

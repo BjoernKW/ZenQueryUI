@@ -16,7 +16,8 @@
     "angular-sanitize": "1.2.16",
     "angular-route": "1.2.16",
     "angular-translate": "~2.1.0",
-    "angular-ui-select2": "latest"
+    "angular-ui-select2": "latest",
+    "angular-bootstrap": "latest"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

@@ -77,3 +77,5 @@ body {
     border-bottom: 0;
   }
 }
+
+.table-striped tbody tr.success td { background-color: #dff0d8; }
