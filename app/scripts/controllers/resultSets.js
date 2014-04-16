@@ -5,4 +5,8 @@ angular.module('zenQueryUiApp')
 		$scope.selectRow = function(row) {
 			$scope.selectedRow = row;
 		};
+
+		var today = new Date();
+
+		$scope.currentYear = today.getFullYear();
 	});

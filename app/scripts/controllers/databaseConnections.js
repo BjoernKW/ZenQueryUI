@@ -2,10 +2,18 @@
 
 angular.module('zenQueryUiApp')
 	.controller('DatabaseConnectionsCtrl', function ($scope, DatabaseConnection) {
+		var filter = function(databaseConnections) {
+			var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
+			var end = begin + $scope.itemsPerPage;
+
+			$scope.filteredDatabaseConnections = databaseConnections.slice(begin, end);
+		};
+
 		var findAll = function() {
 			$scope.databaseConnections = DatabaseConnection.findAll(
 				function(databaseConnections) {
 					$scope.total = databaseConnections.length;
+					filter(databaseConnections);
 				}
 			);
 		};
@@ -20,6 +28,15 @@ angular.module('zenQueryUiApp')
 					databaseConnectionId: databaseConnectionId
 				}
 			);
+		};
+
+		$scope.numberOfPages = function () {
+			return Math.ceil($scope.databaseConnections.length / $scope.itemsPerPage);
+		};
+
+		$scope.selectPage = function (page) {
+			$scope.currentPage = page;
+			filter($scope.databaseConnections);
 		};
 
 		$scope.new = function() {
@@ -58,6 +75,12 @@ angular.module('zenQueryUiApp')
 		var today = new Date();
 
 		$scope.currentYear = today.getFullYear();
+		console.log($scope.currentYear);
+
+		$scope.filteredDatabaseConnections = [];
+		$scope.currentPage = 1;
+		$scope.itemsPerPage = 5;
+		$scope.maxSize = 5;
 
 		findAll();
 	});

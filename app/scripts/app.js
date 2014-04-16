@@ -53,7 +53,12 @@ angular
       'CREATE': 'Create',
       'UPDATE': 'Update',
       'DELETE': 'Delete',
-      'NEW': 'New'
+      'NEW': 'New',
+      'KEY': 'ID',
+      'QUERY': 'Query',
+      'CONTENT': 'Content',
+      'SELECT': 'Please select',
+      'DATABASE_CONNECTION': 'Database connection'
     });
     $translateProvider.translations('de_DE', {
       'NAME': 'Name',
@@ -72,7 +77,12 @@ angular
       'CREATE': 'Erstellen',
       'UPDATE': 'Aktualisieren',
       'DELETE': 'Löschen',
-      'NEW': 'Neu'
+      'NEW': 'Neu',
+      'KEY': 'ID',
+      'QUERY': 'Abfrage',
+      'CONTENT': 'Inhalt',
+      'SELECT': 'Bitte auswählen',
+      'DATABASE_CONNECTION': 'Datenbankverbindung'
     });
     $translateProvider.preferredLanguage('en_UK');
   });

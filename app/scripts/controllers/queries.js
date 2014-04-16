@@ -1,11 +1,19 @@
 'use strict';
 
 angular.module('zenQueryUiApp')
-	.controller('QueriesCtrl', function ($scope, Query) {
+	.controller('QueriesCtrl', function ($scope, Query, DatabaseConnection) {
 		var findAll = function() {
 			$scope.queries = Query.findAll(
 				function(queries) {
 					$scope.total = queries.length;
+				}
+			);
+		};
+
+		var findAllDatabaseConnections = function() {
+			$scope.databaseConnections = DatabaseConnection.findAll(
+				function(databaseConnections) {
+					$scope.total = databaseConnections.length;
 				}
 			);
 		};
@@ -60,4 +68,5 @@ angular.module('zenQueryUiApp')
 		$scope.currentYear = today.getFullYear();
 
 		findAll();
+		findAllDatabaseConnections();
 	});
