@@ -4,6 +4,13 @@ var zenQueryAPIRoot = 'http://localhost:8080';
 var zenQueryServices = angular.module('zenQueryServices', ['ngResource']);
 
 zenQueryServices
+	.factory("Utility", function() {                                                                                                                                                   
+    	return {                                                                                                                                                                                                              
+			selectRow: function(row) {
+				$scope.selectedRow = row;
+    		}
+    	}
+    })
 	.factory('DatabaseConnection', function($resource) {
 		return $resource(zenQueryAPIRoot + '/api/v1/databaseConnections/:databaseConnectionId',
 			{ },

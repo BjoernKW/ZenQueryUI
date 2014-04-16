@@ -20,10 +20,12 @@
           <th>{{ 'USERNAME' | translate }}</th>
           <th>{{ 'PASSWORD' | translate }}</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tfoot>
         <tr>
+          <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
@@ -32,11 +34,14 @@
         </tr>
       </tfoot>
       <tbody>
-        <tr ng-click="showDetails(databaseConnection.id)" ng-repeat="databaseConnection in databaseConnections">
+        <tr ng-repeat="databaseConnection in databaseConnections" ng-click="Utility.selectRow($index)" ng-class="{ warning: $index == selectedRow }">
           <td>{{databaseConnection.name}}</td>
           <td>{{databaseConnection.url}}</td>
           <td>{{databaseConnection.username}}</td>
           <td>{{databaseConnection.password}}</td>
+          <td>
+            <button type="submit" class="btn btn-info" ng-click="showDetails(databaseConnection.id)">{{ 'DETAILS' | translate }}</button>
+          </td>
           <td>
             <button type="submit" class="btn btn-danger" ng-click="delete(databaseConnection.id)">{{ 'DELETE' | translate }}</button>
           </td>
@@ -72,11 +77,3 @@
     </form>
   </div>
 </div>
-
-<br><br>
-
-<hr>
-
-<footer>
-  <div id="main_footer">created by <a href="http://fullmontymedia.com" title="Full Monty Media">Full Monty Media</a>, {{currentYear}}.</div>
-</footer>

@@ -13,7 +13,7 @@ angular
   .config(function ($routeProvider, $translateProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/databaseConnections.html',
         controller: 'DatabaseConnectionsCtrl'
       })
       .when('/databaseConnections', {

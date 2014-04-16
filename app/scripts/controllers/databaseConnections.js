@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('zenQueryUiApp')
-	.controller('DatabaseConnectionsCtrl', function ($scope, DatabaseConnection) {
+	.controller('DatabaseConnectionsCtrl', function ($scope, Utility, DatabaseConnection) {
 		var findAll = function() {
 			$scope.databaseConnections = DatabaseConnection.findAll(
 				function(databaseConnections) {
@@ -9,6 +9,8 @@ angular.module('zenQueryUiApp')
 				}
 			);
 		};
+
+		$scope.Utility = Utility;
 
 		$scope.showDetails = function(databaseConnectionId) {
 			$scope.databaseConnection = DatabaseConnection.get(

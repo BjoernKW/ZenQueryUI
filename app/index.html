@@ -27,6 +27,13 @@
     <!-- Add your site or application content here -->
     <div class="container" ng-view="main"></div>
 
+    <div class="container">
+        <br><br><hr>
+        <footer>
+          <div id="main_footer">created by <a href="http://fullmontymedia.com" title="Full Monty Media">Full Monty Media</a>, {{currentYear}}.</div>
+        </footer>
+    </div>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,14 +65,14 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/services.js"></script>
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/databaseConnections.js"></script>
-        <script src="scripts/controllers/queries.js"></script>
-        <script src="scripts/controllers/queryVersions.js"></script>
-        <script src="scripts/controllers/resultSets.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/services.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/databaseConnections.js"></script>
+    <script src="scripts/controllers/queries.js"></script>
+    <script src="scripts/controllers/queryVersions.js"></script>
+    <script src="scripts/controllers/resultSets.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
