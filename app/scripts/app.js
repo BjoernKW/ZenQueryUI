@@ -25,14 +25,6 @@ angular
         templateUrl: 'views/queries.html',
         controller: 'QueriesCtrl'
       })
-      .when('/queryVersions', {
-        templateUrl: 'views/queryVersions.html',
-        controller: 'QueryVersionsCtrl'
-      })
-      .when('/resultSets', {
-        templateUrl: 'views/resultSets.html',
-        controller: 'ResultSetsCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });
