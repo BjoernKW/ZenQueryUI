@@ -14,8 +14,8 @@ angular
   .config(function ($routeProvider, $translateProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/databaseConnections.html',
-        controller: 'DatabaseConnectionsCtrl'
+        templateUrl: 'views/queries.html',
+        controller: 'QueriesCtrl'
       })
       .when('/databaseConnections', {
         templateUrl: 'views/databaseConnections.html',

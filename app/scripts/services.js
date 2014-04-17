@@ -108,11 +108,23 @@ zenQueryServices
 		);
 	})
 	.factory('ResultSet', function($resource) {
+		return $resource(zenQueryAPIRoot + '/api/v1/resultSetForQuery/:queryId',
+			{ },
+			{
+				get: {
+					method: 'GET',
+					isArray: true
+				}
+			}
+		);
+	})
+	.factory('ResultSetFinder', function($resource) {
 		return $resource(zenQueryAPIRoot + '/api/v1/resultSetForQuery/:queryId/:version',
 			{ },
 			{
 				get: {
-					method: 'GET'
+					method: 'GET',
+					isArray: true
 				}
 			}
 		);
