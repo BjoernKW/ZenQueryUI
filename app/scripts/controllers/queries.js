@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('zenQueryUiApp')
-	.controller('QueriesCtrl', function ($scope, Query, DatabaseConnection) {
+	.controller('QueriesCtrl', function ($scope, Query, QueryVersion, DatabaseConnection) {
 		var findAll = function() {
 			$scope.queries = Query.findAll(
 				function(queries) {
@@ -38,6 +38,14 @@ angular.module('zenQueryUiApp')
 			$scope.query = Query.create(
 				$scope.query,
 				function() {
+					$scope.queryVersion.queryId = $scope.query.id;
+					$scope.queryVersion.version = 1;
+					$scope.queryVersion.isCurrentVersion = true;
+
+					$scope.queryVersion = QueryVersion.create(
+						$scope.queryVersion
+					);
+
 					findAll();
 				}
 			);
