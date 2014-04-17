@@ -54,8 +54,20 @@ zenQueryServices
 			}
 		);
 	})
+	.factory('QueryFinder', function($resource) {
+		return $resource(zenQueryAPIRoot + '/api/v1/queries/:action/:databaseConnectionId',
+			{ },
+			{
+				findByDatabaseConnectionId: {
+					method: 'GET',
+					params: { action: 'findByDatabaseConnectionId' },
+					isArray: true
+				},
+			}
+		);
+	})
 	.factory('QueryVersion', function($resource) {
-		return $resource(zenQueryAPIRoot + '/api/v1/queries/:queryVersionId',
+		return $resource(zenQueryAPIRoot + '/api/v1/queryVersions/:queryVersionId',
 			{ },
 			{
 				findAll: {
@@ -75,6 +87,22 @@ zenQueryServices
 				},
 				delete: {
 					method: 'DELETE'
+				}
+			}
+		);
+	})
+	.factory('QueryVersionFinder', function($resource) {
+		return $resource(zenQueryAPIRoot + '/api/v1/queryVersions/:action/:queryId',
+			{ },
+			{
+				findByQueryId: {
+					method: 'GET',
+					params: { action: 'findByQueryId' },
+					isArray: true
+				},
+				findCurrentByQueryId: {
+					method: 'GET',
+					params: { action: 'findCurrentByQueryId' }
 				}
 			}
 		);
