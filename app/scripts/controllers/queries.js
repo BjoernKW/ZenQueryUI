@@ -30,10 +30,10 @@ angular.module('zenQueryUiApp')
 			);
 		};
 
-		$scope.execute = function(queryId) {
+		$scope.execute = function() {
 			$scope.resultSet = ResultSet.get(
 				{
-					queryId: queryId
+					queryId: $scope.query.id
 				},
 				function(resultSet) {
 					console.log(resultSet);
