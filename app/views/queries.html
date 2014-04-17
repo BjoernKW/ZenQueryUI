@@ -14,7 +14,7 @@
     <table ng-table="tableParams" class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
-          <th>{{ 'KEY' | translate }}</th>
+          <th>{{ 'CONTENT' | translate }}</th>
           <th></th>
           <th></th>
         </tr>
@@ -28,7 +28,7 @@
       </tfoot>
       <tbody>
         <tr ng-repeat="query in queries" ng-class="{ success : $index == selectedRow }">
-          <td>{{query.key}}</td>
+          <td>{{query.content}}</td>
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(query.id)">{{ 'DETAILS' | translate }}</button>
           </td>

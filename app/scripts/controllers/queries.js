@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('zenQueryUiApp')
-	.controller('QueriesCtrl', function ($scope, Query, QueryVersion, QueryVersionFinder, DatabaseConnection) {
+	.controller('QueriesCtrl', function ($scope, Query, QueryVersion, DatabaseConnection) {
 		var findAll = function() {
 			$scope.queries = Query.findAll(
 				function(queries) {
@@ -11,11 +11,7 @@ angular.module('zenQueryUiApp')
 		};
 
 		var findAllDatabaseConnections = function() {
-			$scope.databaseConnections = DatabaseConnection.findAll(
-				function(databaseConnections) {
-					$scope.total = databaseConnections.length;
-				}
-			);
+			$scope.databaseConnections = DatabaseConnection.findAll();
 		};
 
 		$scope.selectRow = function(row) {
@@ -27,33 +23,32 @@ angular.module('zenQueryUiApp')
 				{
 					queryId: queryId
 				},
-				function() {
-					$scope.queryVersion = QueryVersionFinder.findCurrentByQueryId(
-						{
-							queryId: queryId
-						}
-					);
+				function(query) {
+					$scope.queryVersion = { };
+					$scope.queryVersion.content = query.content;
 				}
 			);
 		};
 
 		$scope.new = function() {
 			$scope.query = null;
+			$scope.queryVersion = null;
 		};
 
 		$scope.create = function() {
 			$scope.query = Query.create(
 				$scope.query,
-				function() {
-					$scope.queryVersion.queryId = $scope.query.id;
+				function(query) {
+					$scope.queryVersion.queryId = query.id;
 					$scope.queryVersion.version = 1;
 					$scope.queryVersion.isCurrentVersion = true;
 
 					$scope.queryVersion = QueryVersion.create(
-						$scope.queryVersion
+						$scope.queryVersion,
+						function() {
+							findAll();
+						}
 					);
-
-					findAll();
 				}
 			);
 		};
