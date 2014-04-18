@@ -395,11 +395,11 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'bowerInstall',
+      'replace:development',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
-      'watch',
-      'replace:development'
+      'watch'
     ]);
   });
 
