@@ -81,12 +81,12 @@
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
-          <th ng-repeat="(key, value) in resultSet[0]">{{key}}</th>
+          <th ng-repeat="(key, value) in resultSet[0]">{{ key }}</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="result in resultSet">
-          <td ng-repeat="(key, value) in result">{{value}}</td>
+          <td ng-repeat="(key, value) in result">{{result}}{{ value }}</td>
         </tr>
       </tbody>
     </table>
