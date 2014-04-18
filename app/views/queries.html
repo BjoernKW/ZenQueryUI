@@ -21,7 +21,7 @@
         <tr>
           <td>&nbsp;</td>
           <td><strong>{{ 'TOTAL' | translate }}</strong></td>
-          <td><strong>{{total}}</strong></td>
+          <td><strong>{{ total }}</strong></td>
         </tr>
       </tfoot>
       <tbody>
@@ -73,19 +73,13 @@
           <th ng-repeat="(key, value) in resultSet[0]">{{key}}</th>
         </tr>
       </thead>
-      <tfoot>
-        <tr>
-          <td colspan="{{ resultSet.length - 3 }}">&nbsp;</td>
-          <td><strong>{{ 'TOTAL' | translate }}</strong></td>
-          <td><strong>{{resultSet.length}}</strong></td>
-        </tr>
-      </tfoot>
       <tbody>
         <tr ng-repeat="result in resultSet">
           <td ng-repeat="(key, value) in result">{{value}}</td>
         </tr>
       </tbody>
     </table>
+    <strong>{{ 'TOTAL' | translate }}</strong>: {{ resultSet.length }}<br><br>
     <a ng-show="query.id" href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.json" target="_blank">JSON</a> |
     <a ng-show="query.id" href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.xml" target="_blank">XML</a> |
     <a ng-show="query.id" href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.csv" target="_blank">CSV</a>

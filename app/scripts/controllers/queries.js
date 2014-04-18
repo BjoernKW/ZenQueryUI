@@ -59,6 +59,7 @@ angular.module('zenQueryUiApp')
 							findAll();
 						}
 					);
+					console.log(query);
 				}
 			);
 		};
@@ -78,6 +79,7 @@ angular.module('zenQueryUiApp')
 					queryId: queryId
 				},
 				function() {
+					$scope.new();
 					findAll();
 				}
 			);
