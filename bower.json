@@ -11,13 +11,15 @@
     "es5-shim": "~2.1.0",
     "jquery": "~1.11.0",
     "bootstrap": "~3.0.3",
+    "angular-animate": "latest",
     "angular-resource": "1.2.16",
     "angular-cookies": "1.2.16",
     "angular-sanitize": "1.2.16",
     "angular-route": "1.2.16",
     "angular-translate": "~2.1.0",
     "angular-ui-select2": "latest",
-    "angular-bootstrap": "latest"
+    "angular-bootstrap": "latest",
+    "angular-loading-bar": "latest"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

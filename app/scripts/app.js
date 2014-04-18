@@ -9,6 +9,8 @@ angular
     'pascalprecht.translate',
     'ui.select2',
     'ui.bootstrap',
+    'chieffancypants.loadingBar',
+    'ngAnimate',
     'zenQueryServices'
   ])
   .config(function ($routeProvider, $translateProvider) {
@@ -52,7 +54,9 @@ angular
       'QUERY': 'Query',
       'CONTENT': 'Content',
       'SELECT': 'Please select',
-      'DATABASE_CONNECTION': 'Database connection'
+      'DATABASE_CONNECTION': 'Database connection',
+      'PREVIOUS_VERSIONS': 'Previous versions',
+      'PREVIOUS_VERSION': 'Previous version'
     });
     $translateProvider.translations('de_DE', {
       'NAME': 'Name',
@@ -78,7 +82,9 @@ angular
       'QUERY': 'Abfrage',
       'CONTENT': 'Inhalt',
       'SELECT': 'Bitte auswählen',
-      'DATABASE_CONNECTION': 'Datenbankverbindung'
+      'DATABASE_CONNECTION': 'Datenbankverbindung',
+      'PREVIOUS_VERSIONS': 'Vorherige Versionen',
+      'PREVIOUS_VERSION': 'Vorherige Version'
     });
     $translateProvider.preferredLanguage('en_UK');
   });

@@ -26,7 +26,7 @@
       </tfoot>
       <tbody>
         <tr ng-repeat="query in queries" ng-class="{ success : $index == selectedRow }">
-          <td>{{query.content}}</td>
+          <td>{{ query.content }}</td>
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(query.id)">{{ 'DETAILS' | translate }}</button>
           </td>
@@ -44,10 +44,9 @@
     <h4>{{ 'DETAILS' | translate }}</h4>
     <form role="form">
   		<div class="form-group">
-  			<label for="databaseConnection">{{ 'DATABASE_CONNECTION' | translate }}</label>
-  			<select id="databaseConnection" style="width: 100%" ui-select2 ng-model="query.databaseConnectionId" data-placeholder="{{ 'SELECT' | translate }}" ng-required="true">
+  			<select id="databaseConnection" name="databaseConnection" style="width: 100%;" ui-select2 ng-model="query.databaseConnectionId" data-placeholder="{{ 'DATABASE_CONNECTION'| translate }}" ng-required="true">
   				<option value=""></option>
-  				<option ng-repeat="databaseConnection in databaseConnections" value="{{databaseConnection.id}}">{{databaseConnection.name}}</option>
+  				<option ng-repeat="databaseConnection in databaseConnections" value="{{ databaseConnection.id }}">{{ databaseConnection.name }}</option>
   			</select>
   		</div>
   		<div class="form-group">
@@ -55,9 +54,15 @@
   			<textarea id="content" class="form-control" rows="3" ng-model="queryVersion.content"></textarea>
   		</div>
   		<button type="submit" class="btn btn-primary" ng-hide="query.id" ng-click="create()">{{ 'CREATE' | translate }}</button>
-      <button type="submit" class="btn btn-primary" ng-show="query.id" ng-click="execute()">{{ 'EXECUTE' | translate }}</button>
+      <button type="submit" class="btn btn-primary" ng-show="query.id" ng-click="update()">{{ 'EXECUTE' | translate }}</button>
   		<button type="submit" class="btn btn-default" ng-show="query.id" ng-click="update()">{{ 'UPDATE' | translate }}</button>
   		<button type="submit" class="btn btn-success" ng-show="query.id" ng-click="new()">{{ 'NEW' | translate }}</button>
+      <div id="previousVersions" class="form-group" ng-show="queryVersions.length > 0">
+        <select style="width: 60%;" ui-select2 ng-change="loadPreviousVersion(previousQueryVersionContent)" ng-model="previousQueryVersionContent" data-placeholder="{{ 'PREVIOUS_VERSIONS' | translate }}" ng-selected="string">
+          <option value=""></option>
+          <option ng-repeat="previousQueryVersion in queryVersions" value="{{ previousQueryVersion.content }}">{{ previousQueryVersion.id }}: {{ previousQueryVersion.content.substring(0, 40) + (previousQueryVersion.content.length > 40 ? ' ...' : '') }}</option>
+        </select>
+      </div>
     </form>
   </div>
 </div>
@@ -67,6 +72,12 @@
 <div class="row" ng-show="resultSet.length > 0">
   <div class="col-lg-12">
     <h4>{{ 'RESULT_SET' | translate }}</h4>
+    <div ng-show="query.id">
+      <a href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.json" target="_blank">JSON</a> |
+      <a href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.xml" target="_blank">XML</a> |
+      <a href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.csv" target="_blank">CSV</a>
+    </div>
+    <br>
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
@@ -80,13 +91,15 @@
       </tbody>
     </table>
     <strong>{{ 'TOTAL' | translate }}</strong>: {{ resultSet.length }}<br><br>
-    <a ng-show="query.id" href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.json" target="_blank">JSON</a> |
-    <a ng-show="query.id" href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.xml" target="_blank">XML</a> |
-    <a ng-show="query.id" href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.csv" target="_blank">CSV</a>
+    <div ng-show="query.id">
+      <a href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.json" target="_blank">JSON</a> |
+      <a href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.xml" target="_blank">XML</a> |
+      <a href="http://localhost:8080/api/v1/resultSetForQuery/{{ query.id }}.csv" target="_blank">CSV</a>
+    </div>
   </div>
 </div>
 
 <br><br><hr>
 <footer>
-  <div id="main_footer">created by <a href="http://fullmontymedia.com" title="Full Monty Media">Full Monty Media</a>, {{currentYear}}.</div>
+  <div id="main_footer">created by <a href="http://fullmontymedia.com" title="Full Monty Media">Full Monty Media</a>, {{ currentYear }}.</div>
 </footer>

@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('zenQueryUiApp')
-	.controller('DatabaseConnectionsCtrl', function ($scope, DatabaseConnection) {
+	.controller('DatabaseConnectionsCtrl', function (
+		$scope,
+		DatabaseConnection
+	) {
 		var filter = function(databaseConnections) {
 			var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
 			var end = begin + $scope.itemsPerPage;
@@ -75,7 +78,6 @@ angular.module('zenQueryUiApp')
 		var today = new Date();
 
 		$scope.currentYear = today.getFullYear();
-		console.log($scope.currentYear);
 
 		$scope.filteredDatabaseConnections = [];
 		$scope.currentPage = 1;

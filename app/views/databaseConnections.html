@@ -29,10 +29,10 @@
       </tfoot>
       <tbody>
         <tr ng-repeat="databaseConnection in filteredDatabaseConnections" ng-class="{ success : $index == selectedRow }">
-          <td>{{databaseConnection.name}}</td>
-          <td>{{databaseConnection.url}}</td>
-          <td>{{databaseConnection.username}}</td>
-          <td>{{databaseConnection.password}}</td>
+          <td>{{ databaseConnection.name }}</td>
+          <td>{{ databaseConnection.url }}</td>
+          <td>{{ databaseConnection.username }}</td>
+          <td>{{ databaseConnection.password }}</td>
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(databaseConnection.id)">{{ 'DETAILS' | translate }}</button>
           </td>
@@ -75,5 +75,5 @@
 
 <br><br><hr>
 <footer>
-  <div id="main_footer">created by <a href="http://fullmontymedia.com" title="Full Monty Media">Full Monty Media</a>, {{currentYear}}.</div>
+  <div id="main_footer">created by <a href="http://fullmontymedia.com" title="Full Monty Media">Full Monty Media</a>, {{ currentYear }}.</div>
 </footer>

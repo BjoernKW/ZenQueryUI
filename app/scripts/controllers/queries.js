@@ -1,7 +1,14 @@
 'use strict';
 
 angular.module('zenQueryUiApp')
-	.controller('QueriesCtrl', function ($scope, Query, QueryVersion, DatabaseConnection, ResultSet) {
+	.controller('QueriesCtrl', function (
+		$scope,
+		Query,
+		QueryVersion,
+		QueryVersionFinder,
+		DatabaseConnection,
+		ResultSet
+	) {
 		var findAll = function() {
 			$scope.queries = Query.findAll(
 				function(queries) {
@@ -36,9 +43,21 @@ angular.module('zenQueryUiApp')
 			$scope.resultSet = ResultSet.get(
 				{
 					queryId: $scope.query.id
+				},
+				function() {
+					$scope.queryVersions = QueryVersionFinder.findPreviousVersionsByQueryId(
+						{
+							queryId: $scope.query.id
+						}
+					);
 				}
 			);
 		};
+
+		$scope.loadPreviousVersion = function(previousQueryVersionContent) {
+			$scope.queryVersion.content = previousQueryVersionContent;
+		};
+
 
 		$scope.new = function() {
 			$scope.query = null;
@@ -57,18 +76,20 @@ angular.module('zenQueryUiApp')
 						$scope.queryVersion,
 						function() {
 							findAll();
+							$scope.execute();
 						}
 					);
-					console.log(query);
 				}
 			);
 		};
 
 		$scope.update = function() {
+			$scope.query.content = $scope.queryVersion.content;
 			Query.update(
 				$scope.query,
 				function() {
 					findAll();
+					$scope.execute();
 				}
 			);
 		};

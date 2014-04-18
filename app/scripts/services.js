@@ -100,6 +100,11 @@ zenQueryServices
 					params: { action: 'findByQueryId' },
 					isArray: true
 				},
+				findPreviousVersionsByQueryId: {
+					method: 'GET',
+					params: { action: 'findPreviousVersionsByQueryId' },
+					isArray: true
+				},
 				findCurrentByQueryId: {
 					method: 'GET',
 					params: { action: 'findCurrentByQueryId' }

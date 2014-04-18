@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('zenQueryUiApp')
-	.controller('QueryVersionCtrl', function ($scope, QueryVersion) {
+	.controller('QueryVersionCtrl', function (
+		$scope,
+		QueryVersion
+	) {
 		var findAll = function() {
 			$scope.queryVersions = QueryVersion.findAll(
 				function(queryVersions) {
