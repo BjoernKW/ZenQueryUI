@@ -26,6 +26,8 @@ angular.module('zenQueryUiApp')
 				function(query) {
 					$scope.queryVersion = { };
 					$scope.queryVersion.content = query.content;
+
+					$scope.execute();
 				}
 			);
 		};
@@ -34,9 +36,6 @@ angular.module('zenQueryUiApp')
 			$scope.resultSet = ResultSet.get(
 				{
 					queryId: $scope.query.id
-				},
-				function(resultSet) {
-					console.log(resultSet);
 				}
 			);
 		};
