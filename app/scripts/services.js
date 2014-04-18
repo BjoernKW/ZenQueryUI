@@ -1,11 +1,10 @@
 'use strict';
 
-var zenQueryAPIRoot = 'http://localhost:8080';
-var zenQueryServices = angular.module('zenQueryServices', ['ngResource']);
+var zenQueryServices = angular.module('zenQueryServices', ['ngResource', 'services.config']);
 
 zenQueryServices
-	.factory('DatabaseConnection', function($resource) {
-		return $resource(zenQueryAPIRoot + '/api/v1/databaseConnections/:databaseConnectionId',
+	.factory('DatabaseConnection', function($resource, configuration) {
+		return $resource(configuration.apiRootURL + '/api/v1/databaseConnections/:databaseConnectionId',
 			{ },
 			{
 				findAll: {
@@ -29,8 +28,8 @@ zenQueryServices
 			}
 		);
 	})
-	.factory('Query', function($resource) {
-		return $resource(zenQueryAPIRoot + '/api/v1/queries/:queryId',
+	.factory('Query', function($resource, configuration) {
+		return $resource(configuration.apiRootURL + '/api/v1/queries/:queryId',
 			{ },
 			{
 				findAll: {
@@ -54,8 +53,8 @@ zenQueryServices
 			}
 		);
 	})
-	.factory('QueryFinder', function($resource) {
-		return $resource(zenQueryAPIRoot + '/api/v1/queries/:action/:databaseConnectionId',
+	.factory('QueryFinder', function($resource, configuration) {
+		return $resource(configuration.apiRootURL + '/api/v1/queries/:action/:databaseConnectionId',
 			{ },
 			{
 				findByDatabaseConnectionId: {
@@ -66,8 +65,8 @@ zenQueryServices
 			}
 		);
 	})
-	.factory('QueryVersion', function($resource) {
-		return $resource(zenQueryAPIRoot + '/api/v1/queryVersions/:queryVersionId',
+	.factory('QueryVersion', function($resource, configuration) {
+		return $resource(configuration.apiRootURL + '/api/v1/queryVersions/:queryVersionId',
 			{ },
 			{
 				findAll: {
@@ -91,8 +90,8 @@ zenQueryServices
 			}
 		);
 	})
-	.factory('QueryVersionFinder', function($resource) {
-		return $resource(zenQueryAPIRoot + '/api/v1/queryVersions/:action/:queryId',
+	.factory('QueryVersionFinder', function($resource, configuration) {
+		return $resource(configuration.apiRootURL + '/api/v1/queryVersions/:action/:queryId',
 			{ },
 			{
 				findByQueryId: {
@@ -112,8 +111,8 @@ zenQueryServices
 			}
 		);
 	})
-	.factory('ResultSet', function($resource) {
-		return $resource(zenQueryAPIRoot + '/api/v1/resultSetForQuery/:queryId',
+	.factory('ResultSet', function($resource, configuration) {
+		return $resource(configuration.apiRootURL + '/api/v1/resultSetForQuery/:queryId',
 			{ },
 			{
 				get: {
@@ -123,8 +122,8 @@ zenQueryServices
 			}
 		);
 	})
-	.factory('ResultSetFinder', function($resource) {
-		return $resource(zenQueryAPIRoot + '/api/v1/resultSetForQuery/:queryId/:version',
+	.factory('ResultSetFinder', function($resource, configuration) {
+		return $resource(configuration.apiRootURL + '/api/v1/resultSetForQuery/:queryId/:version',
 			{ },
 			{
 				get: {

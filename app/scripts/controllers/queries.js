@@ -7,7 +7,8 @@ angular.module('zenQueryUiApp')
 		QueryVersion,
 		QueryVersionFinder,
 		DatabaseConnection,
-		ResultSet
+		ResultSet,
+		configuration
 	) {
 		var findAll = function() {
 			$scope.queries = Query.findAll(
@@ -45,9 +46,13 @@ angular.module('zenQueryUiApp')
 					queryId: $scope.query.id
 				},
 				function() {
+					var currentContent = $scope.queryVersion.content;
 					$scope.queryVersions = QueryVersionFinder.findPreviousVersionsByQueryId(
 						{
 							queryId: $scope.query.id
+						},
+						function() {
+							$scope.queryVersion.content = currentContent;
 						}
 					);
 				}
@@ -105,6 +110,8 @@ angular.module('zenQueryUiApp')
 				}
 			);
 		};
+
+		$scope.configuration = configuration;
 
 		var today = new Date();
 

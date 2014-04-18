@@ -11,6 +11,7 @@ angular
     'ui.bootstrap',
     'chieffancypants.loadingBar',
     'ngAnimate',
+    'services.config',
     'zenQueryServices'
   ])
   .config(function ($routeProvider, $translateProvider) {
