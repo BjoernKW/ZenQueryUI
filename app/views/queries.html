@@ -26,7 +26,7 @@
       </tfoot>
       <tbody>
         <tr ng-repeat="query in queries" ng-class="{ success : $index == selectedRow }">
-          <td>{{ query.content }}</td>
+          <td>{{ query.content.substring(0, 300) + (query.content.length > 300 ? ' ...' : '') }}</td>
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(query.id)">{{ 'DETAILS' | translate }}</button>
           </td>
@@ -51,7 +51,7 @@
   		</div>
   		<div class="form-group">
   			<label for="content">{{ 'CONTENT' | translate }}</label>
-  			<textarea id="content" class="form-control" rows="3" ng-model="queryVersion.content"></textarea>
+  			<textarea id="content" class="form-control" rows="10" ng-model="queryVersion.content"></textarea>
   		</div>
   		<button type="submit" class="btn btn-primary" ng-hide="query.id" ng-click="create()">{{ 'CREATE' | translate }}</button>
       <button type="submit" class="btn btn-primary" ng-show="query.id" ng-click="update()">{{ 'EXECUTE' | translate }}</button>
