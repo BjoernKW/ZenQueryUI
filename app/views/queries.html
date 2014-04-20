@@ -57,8 +57,8 @@
       <button type="submit" class="btn btn-primary" ng-show="query.id" ng-click="update()">{{ 'EXECUTE' | translate }}</button>
   		<button type="submit" class="btn btn-default" ng-show="query.id" ng-click="update()">{{ 'UPDATE' | translate }}</button>
   		<button type="submit" class="btn btn-success" ng-show="query.id" ng-click="new()">{{ 'NEW' | translate }}</button>
-      <div id="previousVersions" class="form-group" ng-show="queryVersions.length > 0">
-        <select style="width: 60%; padding-left: 10px" ui-select2 ng-change="loadPreviousVersion(previousQueryVersionContent)" ng-model="previousQueryVersionContent" data-placeholder="{{ 'PREVIOUS_VERSIONS' | translate }}" ng-selected="string">
+      <div id="previousVersions" class="form-group" ng-show="queryVersions.length > 0" style="padding-left: 10px;">
+        <select style="width: 60%;" ui-select2 ng-change="loadPreviousVersion(previousQueryVersionContent)" ng-model="previousQueryVersionContent" data-placeholder="{{ 'PREVIOUS_VERSIONS' | translate }}" ng-selected="string">
           <option value=""></option>
           <option ng-repeat="previousQueryVersion in queryVersions" value="{{ previousQueryVersion.content }}">{{ previousQueryVersion.id }}: {{ previousQueryVersion.content.substring(0, 40) + (previousQueryVersion.content.length > 40 ? ' ...' : '') }}</option>
         </select>
