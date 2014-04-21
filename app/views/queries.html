@@ -30,8 +30,8 @@
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(query.id)">{{ 'DETAILS' | translate }}</button>
           </td>
-          <td>
-            <button type="submit" class="btn btn-danger" ng-show="configuration.deleteAllowed" ng-click="delete(query.id)">{{ 'DELETE' | translate }}</button>
+          <td ng-show="configuration.deleteAllowed">
+            <button type="submit" class="btn btn-danger" ng-click="delete(query.id)">{{ 'DELETE' | translate }}</button>
           </td>
         </tr>
       </tbody>

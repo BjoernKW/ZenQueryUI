@@ -22,7 +22,7 @@
       </thead>
       <tfoot>
         <tr>
-          <td colspan="{{ 4 - (configuration.deleteAllowed ? 0 : 1) }}">&nbsp;</td>
+          <td colspan="{{ 4 - (configuration.deleteAllowed == 'true' ? 0 : 1) }}">&nbsp;</td>
           <td><strong>{{ 'TOTAL' | translate }}</strong></td>
           <td><strong>{{total}}</strong></td>
         </tr>
@@ -36,8 +36,8 @@
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(databaseConnection.id)">{{ 'DETAILS' | translate }}</button>
           </td>
-          <td>
-            <button type="submit" class="btn btn-danger" ng-show="configuration.deleteAllowed" ng-click="delete(databaseConnection.id)">{{ 'DELETE' | translate }}</button>
+          <td ng-show="configuration.deleteAllowed">
+            <button type="submit" class="btn btn-danger" ng-click="delete(databaseConnection.id)">{{ 'DELETE' | translate }}</button>
           </td>
         </tr>
       </tbody>
