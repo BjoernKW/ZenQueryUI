@@ -1,3 +1,4 @@
 {
-  "apiRootURL": ""
+  "apiRootURL": "",
+  "deleteAllowed": false
 }

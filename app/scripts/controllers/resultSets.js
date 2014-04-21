@@ -9,6 +9,5 @@ angular.module('zenQueryUiApp')
 		};
 
 		var today = new Date();
-
 		$scope.currentYear = today.getFullYear();
 	});

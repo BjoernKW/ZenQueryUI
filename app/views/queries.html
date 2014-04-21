@@ -14,12 +14,12 @@
         <tr>
           <th>{{ 'CONTENT' | translate }}</th>
           <th></th>
-          <th></th>
+          <th ng-show="configuration.deleteAllowed"></th>
         </tr>
       </thead>
       <tfoot>
         <tr>
-          <td>&nbsp;</td>
+          <td ng-show="configuration.deleteAllowed">&nbsp;</td>
           <td><strong>{{ 'TOTAL' | translate }}</strong></td>
           <td><strong>{{ total }}</strong></td>
         </tr>
@@ -31,7 +31,7 @@
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(query.id)">{{ 'DETAILS' | translate }}</button>
           </td>
           <td>
-            <button type="submit" class="btn btn-danger" ng-click="delete(query.id)">{{ 'DELETE' | translate }}</button>
+            <button type="submit" class="btn btn-danger" ng-show="configuration.deleteAllowed" ng-click="delete(query.id)">{{ 'DELETE' | translate }}</button>
           </td>
         </tr>
       </tbody>

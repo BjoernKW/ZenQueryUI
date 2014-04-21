@@ -3,7 +3,8 @@
 angular.module('zenQueryUiApp')
 	.controller('DatabaseConnectionsCtrl', function (
 		$scope,
-		DatabaseConnection
+		DatabaseConnection,
+		configuration
 	) {
 		var filter = function(databaseConnections) {
 			var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
@@ -75,8 +76,9 @@ angular.module('zenQueryUiApp')
 			);
 		};
 
-		var today = new Date();
+		$scope.configuration = configuration;
 
+		var today = new Date();
 		$scope.currentYear = today.getFullYear();
 
 		$scope.filteredDatabaseConnections = [];

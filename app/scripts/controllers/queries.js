@@ -114,7 +114,6 @@ angular.module('zenQueryUiApp')
 		$scope.configuration = configuration;
 
 		var today = new Date();
-
 		$scope.currentYear = today.getFullYear();
 
 		findAll();

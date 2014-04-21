@@ -2,5 +2,6 @@
 
 angular.module('services.config', [])
   .constant('configuration', {
-    apiRootURL: '@@apiRootURL'
+    apiRootURL: '@@apiRootURL',
+    deleteAllowed: '@@deleteAllowed'
   });
