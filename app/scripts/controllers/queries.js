@@ -60,43 +60,50 @@ angular.module('zenQueryUiApp')
 		};
 
 		$scope.loadPreviousVersion = function(previousQueryVersionContent) {
-			$scope.queryVersion.content = previousQueryVersionContent;
+			if ($scope.queryVersion != null) {
+				$scope.queryVersion.content = previousQueryVersionContent;
+			}
 		};
 
 
 		$scope.new = function() {
 			$scope.query = null;
 			$scope.queryVersion = null;
+			$scope.queryVersions = null
 		};
 
 		$scope.create = function() {
-			$scope.query = Query.create(
-				$scope.query,
-				function(query) {
-					$scope.queryVersion.queryId = query.id;
-					$scope.queryVersion.version = 1;
-					$scope.queryVersion.isCurrentVersion = true;
+			if ($scope.queryVersion != null) {
+				if ($scope.queryVersion.content.length > 0) {
+					if ($scope.query != null) {
+						var query = $scope.query;
+						query.content = $scope.queryVersion.content;
 
-					$scope.queryVersion = QueryVersion.create(
-						$scope.queryVersion,
+						$scope.query = Query.create(
+							query,
+							function() {
+								findAll();
+								$scope.execute();
+							}
+						);
+					}
+				}
+			}
+		};
+
+		$scope.update = function() {
+			if ($scope.queryVersion != null) {
+				if ($scope.queryVersion.content.length > 0) {
+					$scope.query.content = $scope.queryVersion.content;
+					Query.update(
+						$scope.query,
 						function() {
 							findAll();
 							$scope.execute();
 						}
 					);
 				}
-			);
-		};
-
-		$scope.update = function() {
-			$scope.query.content = $scope.queryVersion.content;
-			Query.update(
-				$scope.query,
-				function() {
-					findAll();
-					$scope.execute();
-				}
-			);
+			}
 		};
 
 		$scope.delete = function(queryId) {
