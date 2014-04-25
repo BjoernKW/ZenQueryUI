@@ -25,7 +25,7 @@
         </tr>
       </tfoot>
       <tbody>
-        <tr ng-repeat="query in queries" ng-class="{ success : $index == selectedRow }">
+        <tr ng-repeat="query in filteredQueries" ng-class="{ success : $index == selectedRow }">
           <td>{{ query.content.substring(0, 300) + (query.content.length > 300 ? ' ...' : '') }}</td>
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(query.id)">{{ 'DETAILS' | translate }}</button>
@@ -36,6 +36,7 @@
         </tr>
       </tbody>
     </table>
+    <pagination class="pagination-sm" boundary-links="true" total-items="total" page="currentPage" max-size="maxSize" num-pages="numberOfPages" items-per-page="itemsPerPage" on-select-page="selectPage(page)"></pagination>
   </div>
 </div>
 

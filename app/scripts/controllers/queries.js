@@ -10,10 +10,18 @@ angular.module('zenQueryUiApp')
 		ResultSet,
 		configuration
 	) {
+		var filter = function(queries) {
+			var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
+			var end = begin + $scope.itemsPerPage;
+
+			$scope.filteredQueries = queries.slice(begin, end);
+		};
+
 		var findAll = function() {
 			$scope.queries = Query.findAll(
 				function(queries) {
 					$scope.total = queries.length;
+					filter(queries);
 				}
 			);
 		};
@@ -24,6 +32,15 @@ angular.module('zenQueryUiApp')
 
 		$scope.selectRow = function(row) {
 			$scope.selectedRow = row;
+		};
+
+		$scope.numberOfPages = function () {
+			return Math.ceil($scope.queries.length / $scope.itemsPerPage);
+		};
+
+		$scope.selectPage = function (page) {
+			$scope.currentPage = page;
+			filter($scope.queries);
 		};
 
 		$scope.showDetails = function(queryId) {
@@ -122,6 +139,11 @@ angular.module('zenQueryUiApp')
 
 		var today = new Date();
 		$scope.currentYear = today.getFullYear();
+
+		$scope.filteredQueries = [];
+		$scope.currentPage = 1;
+		$scope.itemsPerPage = 5;
+		$scope.maxSize = 5;
 
 		findAll();
 		findAllDatabaseConnections();

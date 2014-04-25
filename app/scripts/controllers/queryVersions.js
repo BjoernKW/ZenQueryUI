@@ -2,7 +2,5 @@
 
 angular.module('zenQueryUiApp')
 	.controller('QueryVersionCtrl', function (
-		$scope,
-		QueryVersion
 	) {
 	});
