@@ -67,7 +67,7 @@
         <input type="password" class="form-control" id="password" placeholder="{{ 'PASSWORD' | translate }}" ng-model="databaseConnection.password">
       </div>
       <button type="submit" class="btn btn-primary" ng-hide="databaseConnection.id" ng-click="create()">{{ 'CREATE' | translate }}</button>
-      <button type="submit" class="btn btn-default" ng-show="databaseConnection.id && databaseEditAllowed" ng-click="update()">{{ 'UPDATE' | translate }}</button>
+      <button type="submit" class="btn btn-default" ng-show="databaseConnection.id && configuration.databaseEditAllowed" ng-click="update()">{{ 'UPDATE' | translate }}</button>
       <button type="submit" class="btn btn-success" ng-show="databaseConnection.id" ng-click="new()">{{ 'NEW' | translate }}</button>
     </form>
   </div>
