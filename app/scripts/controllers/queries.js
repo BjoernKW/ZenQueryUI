@@ -77,7 +77,7 @@ angular.module('zenQueryUiApp')
 		};
 
 		$scope.loadPreviousVersion = function(previousQueryVersionContent) {
-			if ($scope.queryVersion != null) {
+			if ($scope.queryVersion !== null) {
 				$scope.queryVersion.content = previousQueryVersionContent;
 			}
 		};
@@ -86,13 +86,13 @@ angular.module('zenQueryUiApp')
 		$scope.new = function() {
 			$scope.query = null;
 			$scope.queryVersion = null;
-			$scope.queryVersions = null
+			$scope.queryVersions = null;
 		};
 
 		$scope.create = function() {
-			if ($scope.queryVersion != null) {
+			if ($scope.queryVersion !== null) {
 				if ($scope.queryVersion.content.length > 0) {
-					if ($scope.query != null) {
+					if ($scope.query !== null) {
 						var query = $scope.query;
 						query.content = $scope.queryVersion.content;
 
@@ -109,7 +109,7 @@ angular.module('zenQueryUiApp')
 		};
 
 		$scope.update = function() {
-			if ($scope.queryVersion != null) {
+			if ($scope.queryVersion !== null) {
 				if ($scope.queryVersion.content.length > 0) {
 					$scope.query.content = $scope.queryVersion.content;
 					Query.update(
