@@ -3,6 +3,6 @@
 angular.module('services.config', [])
   .constant('configuration', {
     apiRootURL: '@@apiRootURL',
-    deleteAllowed: '@@deleteAllowed'
+    deleteAllowed: '@@deleteAllowed',
     databaseEditAllowed: '@@databaseEditAllowed'
   });
