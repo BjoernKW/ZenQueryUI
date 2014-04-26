@@ -14,6 +14,10 @@ angular.module('zenQueryUiApp')
 			var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
 			var end = begin + $scope.itemsPerPage;
 
+			queries.sort(function(a, b) {
+				return a.id - b.id;
+			});
+
 			$scope.filteredQueries = queries.slice(begin, end);
 		};
 
@@ -70,6 +74,10 @@ angular.module('zenQueryUiApp')
 						},
 						function() {
 							$scope.queryVersion.content = currentContent;
+							
+							$scope.queryVersions.sort(function(a, b) {
+								return b.id - a.id;
+							});
 						}
 					);
 				}

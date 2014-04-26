@@ -10,6 +10,10 @@ angular.module('zenQueryUiApp')
 			var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
 			var end = begin + $scope.itemsPerPage;
 
+			databaseConnections.sort(function(a, b) {
+				return a.id - b.id;
+			});
+
 			$scope.filteredDatabaseConnections = databaseConnections.slice(begin, end);
 		};
 

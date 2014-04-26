@@ -2,7 +2,7 @@
 
 angular.module('services.config', [])
   .constant('configuration', {
-    apiRootURL: '',
-    deleteAllowed: 'false',
-    databaseEditAllowed: 'false'
+    apiRootURL: 'http://localhost:8080',
+    deleteAllowed: 'true',
+    databaseEditAllowed: 'true'
   });
