@@ -112,7 +112,7 @@ zenQueryServices
 		);
 	})
 	.factory('ResultSet', function($resource, configuration) {
-		return $resource(configuration.apiRootURL + '/api/v1/resultSetForQuery/:queryId',
+		return $resource(configuration.apiRootURL + '/api/v1/resultSetForQuery/:queryId/:variables',
 			{ },
 			{
 				get: {

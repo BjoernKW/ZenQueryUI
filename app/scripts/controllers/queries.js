@@ -34,6 +34,17 @@ angular.module('zenQueryUiApp')
 			$scope.databaseConnections = DatabaseConnection.findAll();
 		};
 
+		var showVariables = function(query) {
+			var matches = query.content.match(/\?/g);
+			var variableCount = matches !== null ? matches.length : 0;
+			var variables = [ ];
+			for (var i = 0; i < variableCount; i++) {
+				variables.push( { id: i } );
+			}
+			$scope.variables = variables;
+			$scope.variableValues = new Array(variableCount);
+		};
+
 		$scope.selectRow = function(row) {
 			$scope.selectedRow = row;
 		};
@@ -56,15 +67,25 @@ angular.module('zenQueryUiApp')
 					$scope.queryVersion = { };
 					$scope.queryVersion.content = query.content;
 
+					showVariables($scope.query);
+
 					$scope.execute();
 				}
 			);
 		};
 
 		$scope.execute = function() {
+			$scope.joinedVariables = '';
+			if ($scope.variableValues) {
+				if ($scope.variableValues.length > 0) {
+					$scope.joinedVariables = '/' + $scope.variableValues.join(',');
+				}
+			}
+
 			$scope.resultSet = ResultSet.get(
 				{
-					queryId: $scope.query.id
+					queryId: $scope.query.id,
+					variables: $scope.joinedVariables
 				},
 				function() {
 					var currentContent = $scope.queryVersion.content;
@@ -74,7 +95,7 @@ angular.module('zenQueryUiApp')
 						},
 						function() {
 							$scope.queryVersion.content = currentContent;
-							
+
 							$scope.queryVersions.sort(function(a, b) {
 								return b.id - a.id;
 							});
@@ -108,6 +129,7 @@ angular.module('zenQueryUiApp')
 							query,
 							function() {
 								findAll();
+								showVariables($scope.query);
 								$scope.execute();
 							}
 						);
@@ -124,6 +146,7 @@ angular.module('zenQueryUiApp')
 						$scope.query,
 						function() {
 							findAll();
+							showVariables($scope.query);
 							$scope.execute();
 						}
 					);

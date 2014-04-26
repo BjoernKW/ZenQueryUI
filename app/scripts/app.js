@@ -57,7 +57,9 @@ angular
       'SELECT': 'Please select',
       'DATABASE_CONNECTION': 'Database connection',
       'PREVIOUS_VERSIONS': 'Previous versions',
-      'PREVIOUS_VERSION': 'Previous version'
+      'PREVIOUS_VERSION': 'Previous version',
+      'SNAPSHOTS': 'Snapshot',
+      'SNAPSHOT': 'Snapshot'
     });
     $translateProvider.translations('de_DE', {
       'NAME': 'Name',
@@ -85,7 +87,9 @@ angular
       'SELECT': 'Bitte auswählen',
       'DATABASE_CONNECTION': 'Datenbankverbindung',
       'PREVIOUS_VERSIONS': 'Vorherige Versionen',
-      'PREVIOUS_VERSION': 'Vorherige Version'
+      'PREVIOUS_VERSION': 'Vorherige Version',
+      'SNAPSHOTS': 'Snapshot',
+      'SNAPSHOT': 'Snapshot'
     });
     $translateProvider.preferredLanguage('en_UK');
   });
