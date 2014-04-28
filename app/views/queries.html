@@ -76,9 +76,9 @@
 <br>
 
 <div ng-show="query.id">
-  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.json" target="_blank">JSON</a> |
-  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.xml" target="_blank">XML</a> |
-  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.csv" target="_blank">CSV</a>
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.json" target="_blank">JSON</a> |
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.xml" target="_blank">XML</a> |
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.csv" target="_blank">CSV</a>
 </div>
 
 <br>
@@ -100,9 +100,9 @@
     </table>
     <strong>{{ 'TOTAL' | translate }}</strong>: {{ resultSet.length }}<br><br>
     <div ng-show="query.id">{{ $scope.joinedVariables.length }}
-      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.json" target="_blank">JSON</a> |
-      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.xml" target="_blank">XML</a> |
-      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.csv" target="_blank">CSV</a>
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.json" target="_blank">JSON</a> |
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.xml" target="_blank">XML</a> |
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.csv" target="_blank">CSV</a>
     </div>
   </div>
 </div>
