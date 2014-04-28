@@ -1,5 +1,5 @@
 {
-  "apiRootURL": "http://localhost:8080",
+  "apiRootURL": "http://localhost:8080/",
   "deleteAllowed": true,
   "databaseEditAllowed": true
 }

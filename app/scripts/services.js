@@ -4,7 +4,7 @@ var zenQueryServices = angular.module('zenQueryServices', ['ngResource', 'servic
 
 zenQueryServices
 	.factory('DatabaseConnection', function($resource, configuration) {
-		return $resource(configuration.apiRootURL + '/api/v1/databaseConnections/:databaseConnectionId',
+		return $resource(configuration.apiRootURL + 'api/v1/databaseConnections/:databaseConnectionId',
 			{ },
 			{
 				findAll: {
@@ -29,7 +29,7 @@ zenQueryServices
 		);
 	})
 	.factory('Query', function($resource, configuration) {
-		return $resource(configuration.apiRootURL + '/api/v1/queries/:queryId',
+		return $resource(configuration.apiRootURL + 'api/v1/queries/:queryId',
 			{ },
 			{
 				findAll: {
@@ -54,7 +54,7 @@ zenQueryServices
 		);
 	})
 	.factory('QueryFinder', function($resource, configuration) {
-		return $resource(configuration.apiRootURL + '/api/v1/queries/:action/:databaseConnectionId',
+		return $resource(configuration.apiRootURL + 'api/v1/queries/:action/:databaseConnectionId',
 			{ },
 			{
 				findByDatabaseConnectionId: {
@@ -66,7 +66,7 @@ zenQueryServices
 		);
 	})
 	.factory('QueryVersion', function($resource, configuration) {
-		return $resource(configuration.apiRootURL + '/api/v1/queryVersions/:queryVersionId',
+		return $resource(configuration.apiRootURL + 'api/v1/queryVersions/:queryVersionId',
 			{ },
 			{
 				findAll: {
@@ -91,7 +91,7 @@ zenQueryServices
 		);
 	})
 	.factory('QueryVersionFinder', function($resource, configuration) {
-		return $resource(configuration.apiRootURL + '/api/v1/queryVersions/:action/:queryId',
+		return $resource(configuration.apiRootURL + 'api/v1/queryVersions/:action/:queryId',
 			{ },
 			{
 				findByQueryId: {
@@ -112,7 +112,7 @@ zenQueryServices
 		);
 	})
 	.factory('ResultSet', function($resource, configuration) {
-		return $resource(configuration.apiRootURL + '/api/v1/resultSetForQuery/:queryId/:variables',
+		return $resource(configuration.apiRootURL + 'api/v1/resultSetForQuery/:queryId/:variables',
 			{ },
 			{
 				get: {
@@ -123,7 +123,7 @@ zenQueryServices
 		);
 	})
 	.factory('ResultSetFinder', function($resource, configuration) {
-		return $resource(configuration.apiRootURL + '/api/v1/resultSetForQuery/:queryId/:version',
+		return $resource(configuration.apiRootURL + 'api/v1/resultSetForQuery/:queryId/:version',
 			{ },
 			{
 				get: {

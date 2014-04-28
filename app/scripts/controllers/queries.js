@@ -78,7 +78,7 @@ angular.module('zenQueryUiApp')
 			$scope.joinedVariables = '';
 			if ($scope.variableValues) {
 				if ($scope.variableValues.length > 0) {
-					$scope.joinedVariables = '/' + $scope.variableValues.join(',');
+					$scope.joinedVariables = $scope.variableValues.join(',');
 				}
 			}
 
@@ -116,6 +116,7 @@ angular.module('zenQueryUiApp')
 			$scope.query = null;
 			$scope.queryVersion = null;
 			$scope.queryVersions = null;
+			$scope.variables = null;
 		};
 
 		$scope.create = function() {

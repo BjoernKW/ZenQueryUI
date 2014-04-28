@@ -59,7 +59,8 @@ angular
       'PREVIOUS_VERSIONS': 'Previous versions',
       'PREVIOUS_VERSION': 'Previous version',
       'SNAPSHOTS': 'Snapshot',
-      'SNAPSHOT': 'Snapshot'
+      'SNAPSHOT': 'Snapshot',
+      'ARGUMENTS': 'Arguments'
     });
     $translateProvider.translations('de_DE', {
       'NAME': 'Name',
@@ -89,7 +90,8 @@ angular
       'PREVIOUS_VERSIONS': 'Vorherige Versionen',
       'PREVIOUS_VERSION': 'Vorherige Version',
       'SNAPSHOTS': 'Snapshot',
-      'SNAPSHOT': 'Snapshot'
+      'SNAPSHOT': 'Snapshot',
+      'ARGUMENTS': 'Argumente'
     });
     $translateProvider.preferredLanguage('en_UK');
   });

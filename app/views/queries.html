@@ -45,6 +45,7 @@
     <h4>{{ 'DETAILS' | translate }}</h4>
     <form role="form">
   		<div class="form-group">
+        <label ng-show="queryVersion.content" for="databaseConnection">{{ 'DATABASE_CONNECTION' | translate }}</label>
   			<select id="databaseConnection" name="databaseConnection" style="width: 100%;" ui-select2 ng-model="query.databaseConnectionId" data-placeholder="{{ 'DATABASE_CONNECTION'| translate }}" ng-required="true">
   				<option value=""></option>
   				<option ng-repeat="databaseConnection in databaseConnections" value="{{ databaseConnection.id }}">{{ databaseConnection.name }}</option>
@@ -54,7 +55,8 @@
   			<label for="content">{{ 'CONTENT' | translate }}</label>
   			<textarea id="content" class="form-control" rows="10" ng-model="queryVersion.content" required="true"></textarea>
   		</div>
-      <div ng-repeat="variable in variables" class="form-group">
+      <label ng-show="variables.length > 0" for="variables">{{ 'ARGUMENTS' | translate }}</label>
+      <div ng-repeat="variable in variables" id="variables" class="form-group">
         <input type="text" class="form-control" id="variables" ng-model="variableValues[$index]">
       </div>
   		<button type="submit" class="btn btn-primary" ng-hide="query.id" ng-click="create()">{{ 'CREATE' | translate }}</button>
@@ -74,9 +76,9 @@
 <br>
 
 <div ng-show="query.id">
-  <a href="{{ configuration.apiRootURL }}/api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables }}.json" target="_blank">JSON</a> |
-  <a href="{{ configuration.apiRootURL }}/api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables }}.xml" target="_blank">XML</a> |
-  <a href="{{ configuration.apiRootURL }}/api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables }}.csv" target="_blank">CSV</a>
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.json" target="_blank">JSON</a> |
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.xml" target="_blank">XML</a> |
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.csv" target="_blank">CSV</a>
 </div>
 
 <br>
@@ -98,9 +100,9 @@
     </table>
     <strong>{{ 'TOTAL' | translate }}</strong>: {{ resultSet.length }}<br><br>
     <div ng-show="query.id">{{ $scope.joinedVariables.length }}
-      <a href="{{ configuration.apiRootURL }}/api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables }}.json" target="_blank">JSON</a> |
-      <a href="{{ configuration.apiRootURL }}/api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables }}.xml" target="_blank">XML</a> |
-      <a href="{{ configuration.apiRootURL }}/api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables }}.csv" target="_blank">CSV</a>
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.json" target="_blank">JSON</a> |
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.xml" target="_blank">XML</a> |
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}/{{ joinedVariables }}.csv" target="_blank">CSV</a>
     </div>
   </div>
 </div>
