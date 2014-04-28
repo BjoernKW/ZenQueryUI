@@ -58,7 +58,7 @@ angular
       'DATABASE_CONNECTION': 'Database connection',
       'PREVIOUS_VERSIONS': 'Previous versions',
       'PREVIOUS_VERSION': 'Previous version',
-      'SNAPSHOTS': 'Snapshot',
+      'SNAPSHOTS': 'Snapshots',
       'SNAPSHOT': 'Snapshot',
       'ARGUMENTS': 'Arguments'
     });
@@ -89,7 +89,7 @@ angular
       'DATABASE_CONNECTION': 'Datenbankverbindung',
       'PREVIOUS_VERSIONS': 'Vorherige Versionen',
       'PREVIOUS_VERSION': 'Vorherige Version',
-      'SNAPSHOTS': 'Snapshot',
+      'SNAPSHOTS': 'Snapshots',
       'SNAPSHOT': 'Snapshot',
       'ARGUMENTS': 'Argumente'
     });
