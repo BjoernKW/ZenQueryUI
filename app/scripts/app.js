@@ -60,7 +60,11 @@ angular
       'PREVIOUS_VERSION': 'Previous version',
       'SNAPSHOTS': 'Snapshots',
       'SNAPSHOT': 'Snapshot',
-      'ARGUMENTS': 'Arguments'
+      'ARGUMENTS': 'Arguments',
+      'HTML_LIST': 'HTML list',
+      'STYLED_HTML_LIST': 'styled HTML list',
+      'HTML_TABLE': 'HTML table',
+      'STYLED_HTML_TABLE': 'styled HTML table'
     });
     $translateProvider.translations('de_DE', {
       'NAME': 'Name',
@@ -91,7 +95,11 @@ angular
       'PREVIOUS_VERSION': 'Vorherige Version',
       'SNAPSHOTS': 'Snapshots',
       'SNAPSHOT': 'Snapshot',
-      'ARGUMENTS': 'Argumente'
+      'ARGUMENTS': 'Argumente',
+      'HTML_LIST': 'HTML Liste',
+      'STYLED_HTML_LIST': 'HTML Liste mit Layout',
+      'HTML_TABLE': 'HTML Tabelle',
+      'STYLED_HTML_TABLE': 'HTML Tabelle mit Layout'
     });
     $translateProvider.preferredLanguage('en_UK');
   });

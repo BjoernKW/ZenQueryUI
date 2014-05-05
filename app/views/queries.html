@@ -76,9 +76,14 @@
 <br>
 
 <div ng-show="query.id">
-  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.json" target="_blank">JSON</a> |
+  [ <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.json" target="_blank">JSON</a> |
   <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.xml" target="_blank">XML</a> |
-  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.csv" target="_blank">CSV</a>
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.csv" target="_blank">CSV</a> ]
+  <br>
+  [ <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/vertical/false/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'HTML_LIST' | translate }}</a> |
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/vertical/true/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'STYLED_HTML_LIST' | translate }}</a> |
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/horizontal/false/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'HTML_TABLE' | translate }}</a> |
+  <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/horizontal/true/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'STYLED_HTML_TABLE' | translate }}</a> ]
 </div>
 
 <br>
@@ -100,9 +105,14 @@
     </table>
     <strong>{{ 'TOTAL' | translate }}</strong>: {{ resultSet.length }}<br><br>
     <div ng-show="query.id">{{ $scope.joinedVariables.length }}
-      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.json" target="_blank">JSON</a> |
+      [ <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/vertical/false/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'HTML_LIST' | translate }}</a> |
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/vertical/true/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'STYLED_HTML_LIST' | translate }}</a> |
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/horizontal/false/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'HTML_TABLE' | translate }}</a> |
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/horizontal/true/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'STYLED_HTML_TABLE' | translate }}</a> ]
+      <br>
+      [ <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.json" target="_blank">JSON</a> |
       <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.xml" target="_blank">XML</a> |
-      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.csv" target="_blank">CSV</a>
+      <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.csv" target="_blank">CSV</a> ]
     </div>
   </div>
 </div>
