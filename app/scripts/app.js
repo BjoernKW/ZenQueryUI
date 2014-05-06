@@ -24,7 +24,7 @@ angular
         templateUrl: 'views/databaseConnections.html',
         controller: 'DatabaseConnectionsCtrl'
       })
-      .when('/queries', {
+      .when('/queries/:databaseConnectionId', {
         templateUrl: 'views/queries.html',
         controller: 'QueriesCtrl'
       })

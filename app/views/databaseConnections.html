@@ -17,12 +17,13 @@
           <th>{{ 'USERNAME' | translate }}</th>
           <th>{{ 'PASSWORD' | translate }}</th>
           <th></th>
+          <th></th>
           <th ng-show="configuration.deleteAllowed"></th>
         </tr>
       </thead>
       <tfoot>
         <tr>
-          <td colspan="{{ 4 - (configuration.deleteAllowed == 'true' ? 0 : 1) }}">&nbsp;</td>
+          <td colspan="{{ 5 - (configuration.deleteAllowed == 'true' ? 0 : 1) }}">&nbsp;</td>
           <td><strong>{{ 'TOTAL' | translate }}</strong></td>
           <td><strong>{{total}}</strong></td>
         </tr>
@@ -35,6 +36,9 @@
           <td>********</td>
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(databaseConnection.id)">{{ 'DETAILS' | translate }}</button>
+          </td>
+          <td>
+            <a class="btn btn-primary" ng-href="#/queries/{{ databaseConnection.id }}">{{ 'QUERIES' | translate }}</a>
           </td>
           <td ng-show="configuration.deleteAllowed">
             <button type="submit" class="btn btn-danger" ng-click="delete(databaseConnection.id)">{{ 'DELETE' | translate }}</button>

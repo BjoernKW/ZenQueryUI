@@ -3,7 +3,9 @@
 angular.module('zenQueryUiApp')
 	.controller('QueriesCtrl', function (
 		$scope,
+		$routeParams,
 		Query,
+		QueryFinder,
 		QueryVersion,
 		QueryVersionFinder,
 		DatabaseConnection,
@@ -22,12 +24,24 @@ angular.module('zenQueryUiApp')
 		};
 
 		var findAll = function() {
-			$scope.queries = Query.findAll(
-				function(queries) {
-					$scope.total = queries.length;
-					filter(queries);
-				}
-			);
+			if ($routeParams.databaseConnectionId) {
+				$scope.queries = QueryFinder.findByDatabaseConnectionId(
+					{
+						databaseConnectionId: $routeParams.databaseConnectionId
+					},
+					function(queries) {
+						$scope.total = queries.length;
+						filter(queries);
+					}
+				);
+			} else {
+				$scope.queries = Query.findAll(
+					function(queries) {
+						$scope.total = queries.length;
+						filter(queries);
+					}
+				);
+			}
 		};
 
 		var findAllDatabaseConnections = function() {
