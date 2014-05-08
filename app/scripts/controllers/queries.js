@@ -170,7 +170,7 @@ angular.module('zenQueryUiApp')
 		};
 
 		$scope.delete = function(queryId) {
-			$scope.query = Query.delete(
+			Query.delete(
 				{
 					queryId: queryId
 				},

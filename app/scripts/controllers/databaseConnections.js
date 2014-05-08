@@ -70,7 +70,7 @@ angular.module('zenQueryUiApp')
 		};
 
 		$scope.delete = function(databaseConnectionId) {
-			$scope.databaseConnection = DatabaseConnection.delete(
+			DatabaseConnection.delete(
 				{
 					databaseConnectionId: databaseConnectionId
 				},
