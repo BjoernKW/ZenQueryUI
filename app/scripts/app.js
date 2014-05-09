@@ -64,7 +64,8 @@ angular
       'HTML_LIST': 'HTML list',
       'STYLED_HTML_LIST': 'styled HTML list',
       'HTML_TABLE': 'HTML table',
-      'STYLED_HTML_TABLE': 'styled HTML table'
+      'STYLED_HTML_TABLE': 'styled HTML table',
+      'FOR_ALL_RESULTS': 'for all results please click on one of the links above or below this table.'
     });
     $translateProvider.translations('de_DE', {
       'NAME': 'Name',
@@ -99,7 +100,8 @@ angular
       'HTML_LIST': 'HTML Liste',
       'STYLED_HTML_LIST': 'HTML Liste mit Layout',
       'HTML_TABLE': 'HTML Tabelle',
-      'STYLED_HTML_TABLE': 'HTML Tabelle mit Layout'
+      'STYLED_HTML_TABLE': 'HTML Tabelle mit Layout',
+      'FOR_ALL_RESULTS': 'für alle Ergebnisse klicken Sie bitte auf einen der Links ober- oder unterhalb dieser Tabelle.'
     });
     $translateProvider.preferredLanguage('en_UK');
   });

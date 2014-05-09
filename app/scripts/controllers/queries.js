@@ -99,7 +99,8 @@ angular.module('zenQueryUiApp')
 			$scope.resultSet = ResultSet.get(
 				{
 					queryId: $scope.query.id,
-					variables: $scope.joinedVariables
+					variables: $scope.joinedVariables,
+					size: $scope.maxSize
 				},
 				function() {
 					var currentContent = $scope.queryVersion.content;
