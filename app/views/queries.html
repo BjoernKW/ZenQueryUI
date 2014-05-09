@@ -103,7 +103,7 @@
         </tr>
       </tbody>
     </table>
-    <strong>{{ 'TOTAL' | translate }}</strong>: {{ resultSet.length }} <span class="text-muted">( {{ 'FOR_ALL_RESULTS' | translate }} )</span><br><br>
+    <strong>{{ 'TOTAL' | translate }}</strong>: {{ resultSet.length }} <span class="text-muted">({{ 'FOR_ALL_RESULTS' | translate }})</span><br><br>
     <div ng-show="query.id">{{ $scope.joinedVariables.length }}
       [ <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/vertical/false/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'HTML_LIST' | translate }}</a> |
       <a href="{{ configuration.apiRootURL }}api/v1/resultSetForQuery/vertical/true/{{ query.id }}{{ joinedVariables.length > 0 ? '/' : '' }}{{ joinedVariables }}.html" target="_blank">{{ 'STYLED_HTML_LIST' | translate }}</a> |
