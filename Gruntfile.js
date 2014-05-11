@@ -348,6 +348,19 @@ module.exports = function (grunt) {
           src: ['./config/config.js'],
           dest: '<%= yeoman.app %>/scripts/services/'
         }]
+      },
+      release: {
+        options: {
+          patterns: [{
+            json: grunt.file.readJSON('./config/environments/release.json')
+          }]
+        },
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['./config/config.js'],
+          dest: '<%= yeoman.app %>/scripts/services/'
+        }]
       }
     },
 
@@ -420,7 +433,6 @@ module.exports = function (grunt) {
     'clean:dist',
     'bowerInstall',
     'useminPrepare',
-    'replace:production',
     'concurrent:dist',
     'autoprefixer',
     'concat',
@@ -441,10 +453,17 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('staging', [
-    'replace:staging'
+    'replace:staging',
+    'build'
   ]);
 
   grunt.registerTask('production', [
-    'replace:production'
+    'replace:production',
+    'build'
+  ]);
+
+  grunt.registerTask('release', [
+    'replace:release',
+    'build'
   ]);
 };

@@ -1,0 +1,5 @@
+{
+  "apiRootURL": "../",
+  "deleteAllowed": true,
+  "databaseEditAllowed": true
+}
