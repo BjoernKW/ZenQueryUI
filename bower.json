@@ -6,23 +6,26 @@
     "url": "https://github.com/BjoernKW/ZenQueryUI"
   },
   "dependencies": {
-    "angular": "1.2.16",
+    "angular": "latest",
     "json3": "~3.2.6",
     "es5-shim": "~2.1.0",
     "jquery": "~1.11.0",
     "bootstrap": "~3.0.3",
     "angular-animate": "latest",
-    "angular-resource": "1.2.16",
-    "angular-cookies": "1.2.16",
-    "angular-sanitize": "1.2.16",
-    "angular-route": "1.2.16",
+    "angular-resource": "latest",
+    "angular-cookies": "latest",
+    "angular-sanitize": "latest",
+    "angular-route": "latest",
     "angular-translate": "~2.1.0",
     "angular-ui-select2": "latest",
     "angular-bootstrap": "latest",
     "angular-loading-bar": "latest"
   },
   "devDependencies": {
-    "angular-mocks": "1.2.16",
-    "angular-scenario": "1.2.16"
+    "angular-mocks": "latest",
+    "angular-scenario": "latest"
+  },
+  "resolutions": {
+    "angular": "1.2.17"
   }
 }
