@@ -16,7 +16,7 @@
     "angular-cookies": "latest",
     "angular-sanitize": "latest",
     "angular-route": "latest",
-    "angular-translate": "~2.1.0",
+    "angular-translate": "latest",
     "angular-ui-select2": "latest",
     "angular-bootstrap": "latest",
     "angular-loading-bar": "latest"
