@@ -38,10 +38,6 @@ angular.module('zenQueryUiApp')
 			);
 		};
 
-		$scope.numberOfPages = function () {
-			return Math.ceil($scope.databaseConnections.length / $scope.itemsPerPage);
-		};
-
 		$scope.selectPage = function (page) {
 			$scope.currentPage = page;
 			filter($scope.databaseConnections);

@@ -14,12 +14,12 @@
         <tr>
           <th>{{ 'CONTENT' | translate }}</th>
           <th></th>
-          <th ng-show="configuration.deleteAllowed"></th>
+          <th ng-show="configuration.deleteAllowed === 'true'"></th>
         </tr>
       </thead>
       <tfoot>
         <tr>
-          <td ng-show="configuration.deleteAllowed">&nbsp;</td>
+          <td ng-show="configuration.deleteAllowed === 'true'">&nbsp;</td>
           <td><strong>{{ 'TOTAL' | translate }}</strong></td>
           <td><strong>{{ total }}</strong></td>
         </tr>
@@ -30,13 +30,13 @@
           <td>
             <button type="submit" class="btn btn-info" ng-click="selectRow($index); showDetails(query.id)">{{ 'DETAILS' | translate }}</button>
           </td>
-          <td ng-show="configuration.deleteAllowed">
+          <td ng-show="configuration.deleteAllowed === 'true'">
             <button type="submit" class="btn btn-danger" ng-click="delete(query.id)">{{ 'DELETE' | translate }}</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <pagination class="pagination-sm" boundary-links="true" total-items="total" page="currentPage" max-size="maxSize" num-pages="numberOfPages" items-per-page="itemsPerPage" on-select-page="selectPage(page)"></pagination>
+    <pagination class="pagination-sm" boundary-links="true" total-items="total" ng-model="currentPage" max-size="maxSize" items-per-page="itemsPerPage" ng-change="selectPage(currentPage)"></pagination>
   </div>
 </div>
 

@@ -63,10 +63,6 @@ angular.module('zenQueryUiApp')
 			$scope.selectedRow = row;
 		};
 
-		$scope.numberOfPages = function () {
-			return Math.ceil($scope.queries.length / $scope.itemsPerPage);
-		};
-
 		$scope.selectPage = function (page) {
 			$scope.currentPage = page;
 			filter($scope.queries);
