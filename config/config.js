@@ -6,3 +6,5 @@ angular.module('services.config', [])
     deleteAllowed: '@@deleteAllowed',
     databaseEditAllowed: '@@databaseEditAllowed'
   });
+
+angular.module('zenQueryServices', ['ngResource', 'services.config']);
