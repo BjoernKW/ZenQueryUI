@@ -6,7 +6,7 @@
     "url": "https://github.com/BjoernKW/ZenQueryUI"
   },
   "dependencies": {
-    "angular": "latest",
+    "angular": "^1.6.1",
     "json3": "latest",
     "es5-shim": "latest",
     "jquery": "latest",
